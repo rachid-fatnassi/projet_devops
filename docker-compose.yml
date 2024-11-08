@@ -1,23 +1,34 @@
 version: '3.8'
 
 services:
-  sonarqube:
-    image: sonarqube:latest
-    container_name: sonarqube
-    environment:
-      - SONARQUBE_JDBC_URL=jdbc:postgresql://postgres:5432/sonar
-      - SONARQUBE_JDBC_USERNAME=sonar
-      - SONARQUBE_JDBC_PASSWORD=sonar
+  spring-boot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring-boot-app
     ports:
-      - "9000:9000"
-    volumes:
-      - sonarqube-data:/opt/sonarqube/data
-      - sonarqube-extensions:/opt/sonarqube/extensions
-      - sonarqube-logs:/opt/sonarqube/logs
+      - "8082:8082"  # Expose port 8082 for your Spring Boot app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/devops?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     depends_on:
-      - postgres
+      - mysql-db
     networks:
       - monitoring
+
+  mysql-db:
+    image: mysql:latest
+    container_name: mysql-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=devops
+    ports:
+      - "3306:3306"
+    networks:
+      - monitoring
+    volumes:
+      - mysql-data:/var/lib/mysql
     restart: always
 
   postgres:
@@ -32,6 +43,22 @@ services:
     networks:
       - monitoring
     restart: always
+
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+    environment:
+      - sonar.jdbc.url=jdbc:postgresql://postgres:5432/sonar
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=sonar
+    networks:
+      - monitoring
+    restart: always
+    depends_on:
+      - postgres
 
   nexus:
     image: sonatype/nexus3:latest
@@ -49,6 +76,7 @@ networks:
     driver: bridge
 
 volumes:
+  mysql-data:
   sonarqube-data:
   sonarqube-extensions:
   sonarqube-logs:
