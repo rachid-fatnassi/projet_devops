@@ -2,5 +2,5 @@ projectKey=jenkins
 serverUrl=http://192.168.50.4:9000
 serverVersion=10.7.0.96327
 dashboardUrl=http://192.168.50.4:9000/dashboard?id=jenkins
-ceTaskId=fa1765a9-b038-437e-a6cf-8c3eb530b1c1
-ceTaskUrl=http://192.168.50.4:9000/api/ce/task?id=fa1765a9-b038-437e-a6cf-8c3eb530b1c1
+ceTaskId=b01775e2-90db-44e1-b631-9327c0c4aa66
+ceTaskUrl=http://192.168.50.4:9000/api/ce/task?id=b01775e2-90db-44e1-b631-9327c0c4aa66
