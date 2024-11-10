@@ -1,85 +1,62 @@
-version: '3.8'
-
 services:
-  spring-boot-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: spring-boot-app
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
     ports:
-      - "8082:8082"  # Expose port 8082 for your Spring Boot app
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/devops?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
-    depends_on:
-      - mysql-db
+      - "9000:9000"  # Expose SonarQube on port 9000
     networks:
-      - monitoring
-
-  mysql-db:
-    image: mysql:latest
-    container_name: mysql-db
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=devops
-    ports:
-      - "3306:3306"
-    networks:
-      - monitoring
+      - projet_devops_sonar_network
     volumes:
-      - mysql-data:/var/lib/mysql
-    restart: always
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_plugins:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_conf:/opt/sonarqube/conf
 
-  postgres:
-    image: postgres:latest
-    container_name: postgres
+  sonarqube_db:
+    image: postgres:alpine
+    container_name: sonarqube_db
     environment:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
       - POSTGRES_DB=sonar
     volumes:
-      - sonarqube-db-data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     networks:
-      - monitoring
-    restart: always
-
-  sonarqube:
-    image: sonarqube:latest
-    container_name: sonarqube
-    ports:
-      - "9000:9000"
-      - "9092:9092"
-    environment:
-      - sonar.jdbc.url=jdbc:postgresql://postgres:5432/sonar
-      - sonar.jdbc.username=sonar
-      - sonar.jdbc.password=sonar
-    networks:
-      - monitoring
-    restart: always
-    depends_on:
-      - postgres
+      - projet_devops_sonar_network
 
   nexus:
     image: sonatype/nexus3:latest
     container_name: nexus
     ports:
-      - "8081:8081"
-    volumes:
-      - nexus-data:/nexus-data
+      - "8081:8081"  # Expose Nexus on port 8081
     networks:
-      - monitoring
-    restart: always
+      - projet_devops_sonar_network
+    volumes:
+      - nexus_data:/nexus-data
 
 networks:
-  monitoring:
-    driver: bridge
+  projet_devops_sonar_network:
+    external: true  # Ensure this network is external and not recreated
 
 volumes:
-  mysql-data:
-  sonarqube-data:
-  sonarqube-extensions:
-  sonarqube-logs:
-  sonarqube-db-data:
-  nexus-data:
+  sonarqube_data:
+    external: true
+    name: 5a5a574f8570ecaa0b22ee8bd6ea0878964d03e68760f4d3e079bb9910e40255
+  sonarqube_plugins:
+    external: true
+    name: 3626d5180edfefc97c29e62917e6e119a7dbb79dfe8fd7a484e6223313b4d415
+  sonarqube_logs:
+    external: true
+    name: 612348833d5fe1537f03f03f65b20dd0887fbb5970ffdb86294a9fa60fbc6603
+  sonarqube_conf:
+    external: true
+    name: 6975c9d889319db1e7a122b6ce750725593dc51a80ec2d0425508dbbec003202
+  sonarqube_data_external:
+    external: true
+    name: 981c06cd287c2d0a1dce7a1ea61f063c67c702d7ebebabfb25d00a603707036b
+  postgres_data:
+    external: false
+  nexus_data:
+    external: true
+    name: 1081e2145f9f9160f02f37677b0752ffc68ed7cbeb0d5b9f4f546bfefbcb4c60
 
