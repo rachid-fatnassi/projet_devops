@@ -12,6 +12,7 @@ services:
       - sonarqube_logs:/opt/sonarqube/logs
       - sonarqube_conf:/opt/sonarqube/conf
       - sonarqube_elasticsearch:/opt/sonarqube/elasticsearch  
+      - sonarqube_temp://opt/sonarqube/temp
 
   sonarqube_db:
     image: postgres:alpine
@@ -67,6 +68,9 @@ volumes:
   sonarqube_elasticsearch:
     external: true
     name: beb353ca7b3ac66349b79bc223b0fe96197975205ff2cbb560341c17ffbb3833
+  sonarqube_temp:
+    external: true
+    name: 9a374fe91eb4149ae269ab020bb008760c36b388de5af84425cb6d6e03fed4a01
   postgres_data:
     external: false
   nexus_data:
@@ -75,4 +79,3 @@ volumes:
   mysql_data:
     external: true
     name: d36ab1b6f764c1f05c1931e76b355ed53770c930eccf252d10aac933b987f885
-
