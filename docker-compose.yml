@@ -11,7 +11,6 @@ services:
       - sonarqube_plugins:/opt/sonarqube/extensions
       - sonarqube_logs:/opt/sonarqube/logs
       - sonarqube_conf:/opt/sonarqube/conf
-      - sonarqube_elasticsearch:/opt/sonarqube/elasticsearch  
       - sonarqube_temp://opt/sonarqube/temp
 
   sonarqube_db:
@@ -65,9 +64,6 @@ volumes:
   sonarqube_conf:
     external: true
     name: 6975c9d889319db1e7a122b6ce750725593dc51a80ec2d0425508dbbec003202
-  sonarqube_elasticsearch:
-    external: true
-    name: beb353ca7b3ac66349b79bc223b0fe96197975205ff2cbb560341c17ffbb3833
   sonarqube_temp:
     external: true
     name: 9a374fe91eb4149ae269ab020bb008760c36b388de5af84425cb6d6e03fed4a1
