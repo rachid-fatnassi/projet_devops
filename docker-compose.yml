@@ -34,6 +34,18 @@ services:
     volumes:
       - nexus_data:/nexus-data
 
+    mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - projet_devops_sonar_network
+
 networks:
   projet_devops_sonar_network:
     external: true  # Ensure this network is external and not recreated
@@ -53,10 +65,12 @@ volumes:
     name: 6975c9d889319db1e7a122b6ce750725593dc51a80ec2d0425508dbbec003202
   sonarqube_data_external:
     external: true
-    name: 981c06cd287c2d0a1dce7a1ea61f063c67c702d7ebebabfb25d00a603707036b
+    name: eb353ca7b3ac66349b79bc223b0fe96197975205ff2cbb560341c17ffbb3833
   postgres_data:
     external: false
   nexus_data:
     external: true
     name: 1081e2145f9f9160f02f37677b0752ffc68ed7cbeb0d5b9f4f546bfefbcb4c60
-
+  mysql_data:
+    external:false
+    name: d36ab1b6f764c1f05c1931e76b355ed53770c930eccf252d10aac933b987f885 
