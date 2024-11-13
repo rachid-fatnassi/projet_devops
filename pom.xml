@@ -10,7 +10,7 @@
     </parent>
     <groupId>tn.esprit</groupId>
     <artifactId>DevOps_Project</artifactId>
-    <version>3.0</version>
+    <version>4.0</version>
     <name>DevOps_Project</name>
     <description>DevOps_Project</description>
     <properties>
@@ -74,7 +74,10 @@
                 </executions>
                 <configuration>
                     <outputDirectory>${project.build.directory}/jacoco</outputDirectory>
-                </configuration>
+	    	    <dataFile>${project.build.directory}/jacoco/jacoco.exec</dataFile>
+    		    <reportsDirectory>${project.build.directory}/jacoco</reportsDirectory>
+    		    <reportFormats>HTML</reportFormats>
+	    	</configuration>
             </plugin>
         </plugins>
     </build>
