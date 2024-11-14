@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
+import tn.esprit.devops_project.repositories.UserRepository; 
+import tn.esprit.devops_project.services.UserService;
+import tn.esprit.devops_project.entities.User;
 import java.util.Optional;
 
 import static org.mockito.Mockito.*;
