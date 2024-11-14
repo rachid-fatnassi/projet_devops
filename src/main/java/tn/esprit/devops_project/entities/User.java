@@ -6,6 +6,8 @@ import javax.persistence.Table;
 @Entity
 // Optional, can be removed if not needed
 public class User {
+    @Id
+    private Long id;
     private String firstName;
     private String lastName;
 
