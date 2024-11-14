@@ -9,3 +9,4 @@ public class DevOps_ProjectSpringBootApplication {
     public static void main(String[] args) {
         SpringApplication.run(DevOps_ProjectSpringBootApplication.class, args);
     }
+}
