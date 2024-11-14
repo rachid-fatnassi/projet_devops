@@ -1,3 +1,3 @@
-/home/vagrant/projet_devops/src/test/java/tn/esprit/devops_project/ExampleTest.java
-/home/vagrant/projet_devops/src/test/java/tn/esprit/devops_project/PerformanceTest.java
-/home/vagrant/projet_devops/src/test/java/tn/esprit/devops_project/UserServiceMockTest.java
+/var/lib/jenkins/workspace/Pipeline_RS/src/test/java/tn/esprit/devops_project/ExampleTest.java
+/var/lib/jenkins/workspace/Pipeline_RS/src/test/java/tn/esprit/devops_project/UserServiceMockTest.java
+/var/lib/jenkins/workspace/Pipeline_RS/src/test/java/tn/esprit/devops_project/PerformanceTest.java
