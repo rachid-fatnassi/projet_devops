@@ -12,7 +12,6 @@ tn/esprit/devops_project/services/ProductServiceImpl.class
 tn/esprit/devops_project/controllers/InvoiceController.class
 tn/esprit/devops_project/entities/InvoiceDetail.class
 tn/esprit/devops_project/repositories/StockRepository.class
-tn/esprit/devops_project/entities/User.class
 tn/esprit/devops_project/repositories/InvoiceDetailRepository.class
 tn/esprit/devops_project/entities/ProductCategory.class
 tn/esprit/devops_project/entities/Product.class
@@ -20,10 +19,8 @@ tn/esprit/devops_project/entities/Stock.class
 tn/esprit/devops_project/services/Iservices/IInvoiceService.class
 tn/esprit/devops_project/services/Iservices/IStockService.class
 tn/esprit/devops_project/entities/Operator.class
-tn/esprit/devops_project/repositories/UserRepository.class
 tn/esprit/devops_project/services/Iservices/IOperatorService.class
 tn/esprit/devops_project/controllers/SupplierController.class
-tn/esprit/devops_project/services/UserService.class
 tn/esprit/devops_project/controllers/OperatorController.class
 tn/esprit/devops_project/entities/Invoice.class
 tn/esprit/devops_project/entities/SupplierCategory.class

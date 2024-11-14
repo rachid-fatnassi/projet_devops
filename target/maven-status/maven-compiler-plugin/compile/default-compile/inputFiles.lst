@@ -1,13 +1,10 @@
-/var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/services/UserService.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/repositories/InvoiceRepository.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/controllers/OperatorController.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/services/StockServiceImpl.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/services/Iservices/IStockService.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/entities/Supplier.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/entities/SupplierCategory.java
-/var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/entities/User.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/entities/Operator.java
-/var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/repositories/UserRepository.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/services/Iservices/IProductService.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/DevOps_ProjectSpringBootApplication.java
 /var/lib/jenkins/workspace/Pipeline_RS/src/main/java/tn/esprit/devops_project/entities/Invoice.java
