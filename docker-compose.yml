@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mysqldb:
     image: mysql:8.0
@@ -11,25 +9,6 @@ services:
       - "3306:3306"
     volumes:
       - db:/var/lib/mysql
-
-  app-tpfoyer:
-    depends_on:
-      - mysqldb
-    image: shark58/devops:latest
-    # Uncomment the line below if you want to build from a Dockerfile in the current directory
-    # build: . 
-    restart: on-failure
-    ports:
-      - "8082:8082"
-    environment:
-      SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/rachid_db?createDatabaseIfNotExist=true",
-        "spring.datasource.username" : "root",
-        "spring.datasource.password" : "root",
-        "spring.jpa.hibernate.ddl-auto" : "update"
-      }'
-    stdin_open: true
-    tty: true
 
 volumes:
   db:
