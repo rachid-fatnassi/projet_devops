@@ -8,8 +8,8 @@ WORKDIR /app
 EXPOSE 8082
 
 # Copy the built .jar file from the target directory into the container
-COPY target/DevOps_Project-1.0.jar /app/DevOps_Project-1.0.jar
+COPY target/DevOps_Project-4.1.jar /app/DevOps_Project-4.1.jar
 
 # Set the entry point for running the application
-ENTRYPOINT ["java", "-jar", "/app/DevOps_Project-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "/app/DevOps_Project-4.1.jar"]
 
