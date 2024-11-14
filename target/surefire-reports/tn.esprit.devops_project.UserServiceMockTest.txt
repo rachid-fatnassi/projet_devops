@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tn.esprit.devops_project.UserServiceMockTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.698 s - in tn.esprit.devops_project.UserServiceMockTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.698 s - in tn.esprit.devops_project.UserServiceMockTest
